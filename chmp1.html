@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Челябинский металлургический комбинат</title>
+    <link rel="stylesheet" href="chmp.css">
+    <script>
+        function CENAZ() {
+            let data = ['03.04.2023', '04.04.2023', '05.04.2023', '06.04.2023', '07.04.2023',
+            '10.04.2023', '11.04.2023', '12.04.2023', '13.04.2023', '14.04.2023', '17.04.2023', 
+            '18.04.2023', '19.04.2023', '20.04.2023', '21.04.2023', '24.04.2023', '25.04.2023', 
+            '26.04.2023', '27.04.2023', '28.04.2023'];
+            let cena = [156.8, 152.85, 152.83, 150.71, 155.99, 162.78, 166.24, 173.6, 176.93, 176.01, 
+            181.75, 196.19, 198.26, 194.38, 196.94, 200.51, 195.92, 193.82, 194.49, 191.49];
+            let table = document.getElementById('cenaz');
+            for (let i = 0; i < data.length; i++) {
+                let tr = document.createElement('tr');
+                let td = document.createElement('td');
+                let td1 = document.createElement('td');
+                // let td2 = document.createElement('td');
+                td.innerHTML = data[i];
+                td1.innerHTML = cena[i];
+                tr.appendChild(td);
+                tr.appendChild(td1);
+                table.appendChild(tr);
+                
+            }
+            let sum = 0;
+            var sr; 
+            for (let i=0; i<cena.length; i++) {
+                sr = (sum += cena[i]) / 20;
+            }
+
+            let otkl = [];
+            for (let i=0; i<cena.length; i++) {
+                otkl.push(cena[i] - sr);
+            }
+            let kvadrat = [];
+            let sum2 = 0;
+            let disp = 0;
+            for (let i=0; i<cena.length; i++) {
+                kvadrat.push(otkl[i]**2);
+                if (kvadrat.length == 20) {
+                    for (let i=0; i<kvadrat.length; i++) {
+                        sum2 += kvadrat[i];
+                    }
+                }
+                
+            }
+            disp = sum2/cena.length;
+            let sr_otkl = 0;
+            sr_otkl = Math.sqrt(disp)
+
+
+            document.getElementById('CZ1').innerHTML = "Минимальное значение цены: " + Math.min(...cena);
+            document.getElementById('CZ2').innerHTML = "Максимальное значение значение цены: " + Math.max(...cena);
+            document.getElementById('CZ3').innerHTML = "Среднеквадратичное отклонение цены: " + Math.floor(sr_otkl);
+        }
+    </script>
+
+    <style>
+        a.str1:visited {
+            color: DodgerBlue; 
+        }
+
+        a.str1:hover {
+            font-size: 13pt;
+        }
+
+        a.chmp:visited {
+            color: white; 
+        }
+
+        a.chmp1:visited {
+            color: DodgerBlue; 
+        }
+
+        a.chmp2:visited {
+            color: white; 
+        }
+
+        a.chmp3:visited {
+            color: white; 
+        }
+
+        a.chmp:hover {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #555567;
+        }
+
+        a.chmp1:hover {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #555567;
+        }
+
+        a.chmp2:hover {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #555567;
+        }
+
+        a.chmp3:hover {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #555567;
+        }
+
+        .button {
+            width: 210px;
+            height: 25px;
+            background-color: #555567;
+            display: inline-block;
+            border-radius: 20px;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+            color: white;
+            text-shadow: 3px 3px 5px DarkGray;
+        }
+    </style>
+</head>
+<body onload="CENAZ()">
+    <header>
+        <img src="CHMP/comp1.png" id="lg">
+        <div class="shapka">
+            <a href="chmp.html" class="chmp">О компании</a>
+            <a href="chmp1.html" class="chmp1">Основные финансовые показатели</a>
+            <a href="chmp2.html" class="chmp2">Контактные данные</a>
+            <a href="chmp3.html" class="chmp3">Видео</a>
+        </div>
+    </header>
+
+    <main>
+        <h1 class="namestr">Основные финансовые показатели</h1>
+        <h1 class="zagolovki">Капитализация «Мечел»</h1>
+        <h2>Капитализация на 27.05.2023: <u>79 582 641 029,1 &#8381;</u></h2>
+
+        <h1 class="zagolovki">Общее число акций «Мечел», обращающихся на
+            Московской фондовой бирже</h1>
+        <h2>Общее число акций: <u>416 270 745</u><u></u></h2>
+        
+        <h1 class="zagolovki">Цены закрытий акций за апрель 2023</h1>
+
+        <table border="1" id="cenaz"></table>
+        <h4><div id="CZ1"></div></h4></div>
+        <h4><div id="CZ2"></div></h4>
+        <h4><div id="CZ3"></div></h4>
+    </main>
+
+    <footer>
+        <div class="ftr"><img src="CHMP/comp1.png" id="lg2">&copy; ПАО «Мечел», 2023</div>
+    </footer>
+</body>
+</html>
