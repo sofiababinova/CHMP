@@ -1,0 +1,82 @@
+body {
+    background: white;
+    font-family: Arial;
+    margin: 0px;
+    font-size: 13pt;
+}
+
+header { 
+    padding: 15px; 
+    font-size: 28pt;
+    transition: 500ms 2s;
+    text-align: center;
+    background: black;
+    height: 70px;
+}
+
+main {
+    
+    background: white;
+    font-family: Arial;
+    margin: 10px 20px;
+    color: #555567;
+}
+
+a {
+    font-size: 15pt;
+    color: white;
+    text-decoration: none;
+    transition: 500ms 0.01s;
+    padding: 0px 50px 0px 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.shapka {
+    text-align: right;
+    position: relative;
+    top: 15px;
+    right: 60px;
+}
+
+.zagolovki {
+    color: DodgerBlue;
+}
+
+#lg {
+    height: 100px;
+    position: absolute;
+    left: 50px;
+    top: 1px;
+}
+
+#lg2 {
+    height: 60px;
+    position: absolute;
+    top: -20px;
+    right: 170px;
+}
+
+footer {
+    padding: 15px; 
+    font-size: 11pt;
+    background: black;
+    height: 40px;
+    bottom: 0;
+    width: 98%;
+    color: white;
+    font-weight: bold;
+}
+
+.ftr {
+    position: relative;
+    text-align: right;
+    top: 10px;
+}
+
+.namestr {
+    text-align: center;
+    font-size: 40pt;
+    color: DodgerBlue;
+    text-shadow: 3px 3px 5px #555567;
+}
