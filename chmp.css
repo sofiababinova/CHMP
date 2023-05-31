@@ -12,6 +12,10 @@ header {
     text-align: center;
     background: black;
     height: 70px;
+    position: fixed;
+    width: 1500px;
+    top: 0px;
+    z-index: 2;
 }
 
 main {
@@ -79,4 +83,8 @@ footer {
     font-size: 40pt;
     color: DodgerBlue;
     text-shadow: 3px 3px 5px #555567;
+}
+
+.pusto {
+    height: 87px;
 }
